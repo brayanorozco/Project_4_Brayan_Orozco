@@ -1,4 +1,22 @@
-body{
+body {
     margin: 0%;
-    background-color: #e0474c;
+    background-color: #65737f;
+}
+
+.form-control{
+    margin-top: 4%;
+}
+
+.container {
+    margin-top: 10%;
+    padding: 2em;
+}
+
+.fw-bold,
+span {
+    color: white;
+}
+
+.btn {
+    margin-top: 6%;
 }
