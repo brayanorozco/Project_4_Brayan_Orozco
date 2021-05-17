@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 //Importing routes
-const home = require('./routes/home');
+const home = require('./routes/login');
 
 
 //Middlewares
