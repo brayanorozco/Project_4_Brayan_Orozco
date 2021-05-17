@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 //Importing routes
-const home = require('./routes/login');
+const login = require('./routes/login');
 
 
 //Middlewares
@@ -19,7 +19,7 @@ app.set('views',"./src/views");
 
 //Routes
 //Calling the routes created before in the "routes" folder
-app.use('/', home);
+app.use('/', login);
 
 module.exports = app;
 
