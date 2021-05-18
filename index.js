@@ -1,4 +1,4 @@
-const app = require('./src/server');
+const app = require('./server');
 
 app.listen(3000, function(){
     console.log('Server is runing')

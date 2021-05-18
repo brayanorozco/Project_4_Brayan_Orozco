@@ -14,3 +14,14 @@ ________________________________________________________
 5.On your app.js include : app.use(express.static('public'));
 
 Boom.It works!!
+
+________________________________________________________
+UUID module
+
+UUID module has been installed in this project, it helps to keep your user sessions "secret".
+Creating an unique user ID for the session.
+
+What is UUID used for?
+UUIDs are generally used for identifying information that needs to be unique within a system or network thereof. Their uniqueness and low probability in being repeated makes them useful for being associative keys in databases and identifiers for physical hardware within an organization.
+
+https://en.wikipedia.org/wiki/Universally_unique_identifier

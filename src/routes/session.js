@@ -1,0 +1,11 @@
+//With this 'Router' method, we can call the routes written
+//in this module from another module.
+const router = require('express').Router();
+
+router.get("/session", (req, res) => {
+
+    //res.render('login', {});
+    
+});
+
+module.exports = router;
