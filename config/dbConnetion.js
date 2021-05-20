@@ -12,7 +12,6 @@ connection.connect((error) => {
     console.log('Connected with database.');
 });
 
-
 //I'm exporting the const 'connection', so it can be used(import) from another file
 //By default a module is "encapsulated", so anything you want to use out of that module
 //you need to tell Node that you are going to use it in another module (file). 
