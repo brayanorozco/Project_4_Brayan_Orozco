@@ -6,6 +6,7 @@ const {v4: uuidv4} = require('uuid')
 
 //Importing routes
 const login = require('./src/routes/login');
+const logged = require('./src/routes/logged');
 
 
 //Middlewares
@@ -13,6 +14,12 @@ const login = require('./src/routes/login');
 //you need to specific the directory where those files (css, images, etc) are going to be accessed
 //in this case '/public'
 app.use(express.static(__dirname + '/public'));
+
+//body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
 
 //Using EJS engine for the views
 app.set('view engine', 'ejs');
@@ -35,6 +42,7 @@ app.use(session({
 //Routes
 //Calling the routes created before in the "routes" folder
 app.use('/', login);
+app.use('/logged', logged);
 //app.use('/session', session);
 
 module.exports = app;
