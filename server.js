@@ -6,7 +6,7 @@ const {v4: uuidv4} = require('uuid')
 
 //Importing routes
 const login = require('./src/routes/login');
-const logged = require('./src/routes/logged');
+const home = require('./src/routes/home');
 
 
 //Middlewares
@@ -42,7 +42,7 @@ app.use(session({
 //Routes
 //Calling the routes created before in the "routes" folder
 app.use('/', login);
-app.use('/logged', logged);
+app.use('/home', home);
 //app.use('/session', session);
 
 module.exports = app;

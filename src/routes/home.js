@@ -10,12 +10,12 @@ const credential = {
 }
 
 //Login user
-router.post('/logged', (req, res) => {
+router.post('/home', (req, res) => {
     if (req.body.email == credential.email && req.body.password == credential.password) {
         //In this line I'm creating a new session for the given email
         req.session.user = req.body.email;
         //After the session is created, I'm redirecting the user to the session page.
-        res.redirect('/logged');
+        res.redirect('/home');
     } else {
         res.end('Invalid Username or Password');
     }
