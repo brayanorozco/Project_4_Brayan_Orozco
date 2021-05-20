@@ -1,6 +1,6 @@
 //With this 'Router' method, we can call the routes written
 //in this module from another module.
-const router = require('express').Router();
+const route = require('express').Router();
 
 //This is a temporary object, to check if
 //the login form is validating the data correctly
@@ -10,7 +10,7 @@ const credential = {
 }
 
 //Login user
-router.post('/home', (req, res) => {
+route.post('/', (req, res) => {
     if (req.body.email == credential.email && req.body.password == credential.password) {
         //In this line I'm creating a new session for the given email
         req.session.user = req.body.email;
@@ -21,5 +21,12 @@ router.post('/home', (req, res) => {
     }
 })
 
+route.get("/", (req, res) => {
 
-module.exports = router;
+    res.render('home', {});
+    
+});
+
+
+
+module.exports = route;

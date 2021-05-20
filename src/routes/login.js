@@ -1,9 +1,9 @@
 //With this 'Router' method, we can call the routes written
 //in this module from another module.
-const router = require('express').Router();
+const route = require('express').Router();
 
 
-router.get("/", (req, res) => {
+route.get("/", (req, res) => {
 
     res.render('login', {});
     
@@ -11,4 +11,4 @@ router.get("/", (req, res) => {
 
 
 
-module.exports = router;
+module.exports = route;
