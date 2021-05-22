@@ -25,3 +25,9 @@ What is UUID used for?
 UUIDs are generally used for identifying information that needs to be unique within a system or network thereof. Their uniqueness and low probability in being repeated makes them useful for being associative keys in databases and identifiers for physical hardware within an organization.
 
 https://en.wikipedia.org/wiki/Universally_unique_identifier
+
+________________________________________________________________
+
+The find() method returns the value of the first element in the provided array that satisfies the provided testing function.If no values satisfy the testing function, undefined is returned.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find

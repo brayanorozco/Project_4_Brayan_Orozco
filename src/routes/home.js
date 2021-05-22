@@ -8,29 +8,33 @@ route.post('/', (req, res) => {
 
     connection.query('SELECT * FROM users', (error, response) => {
 
-        const emailForm = req.body.email ,passwordForm = req.body.password;
-        console.log(emailForm);
-        console.log(passwordForm);   
+        const emailForm = req.body.email, passwordForm = req.body.password;
+
 
         if (response) {
 
             const validated = response.find(row => {
-                return row.email_user == emailForm && row.password == passwordForm;
+                return row.email_user == emailForm && row.password == passwordForm; 
             })
-
-            console.log(validated);
-            
-            //In this line I'm creating a new session for the given email
+            if(validated == undefined){
+                res.end('Invalid Username or Password');
+            }
+            else{
+                  //In this line I'm creating a new session for the given email
             req.session.user = req.body.email;
             //After the session is created, I'm redirecting the user to the session page.
             res.redirect('/home');
+            }
         }
-        if (error) {
-            res.end(error);
-        } else {
-            res.end('Invalid Username or Password');
-        }
+       
     })
 })
+
+//This method is going to call the page "home" after executing redirect from the previous one
+route.get("/", (req, res) => {
+
+    res.render('home', {});
+    
+});
 
 module.exports = route;
