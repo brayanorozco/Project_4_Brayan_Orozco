@@ -40,7 +40,7 @@ app.use(session({
 
 
 //Routes
-//Calling the routes created before in the "routes" folder
+//Assigning the routes created before in the "routes" folder
 app.use('/', login);
 app.use('/home', route);
 //app.use('/session', session);
