@@ -5,10 +5,17 @@ const connection = require('../../config/dbConnetion');
 
 //Login user
 route.post('/', (req, res) => {
-    console.log(req.body);
+
     connection.query('SELECT * FROM users', (error, response) => {
-        console.log(response)
-        if (req.body.email == response.email_user && req.body.password == response.password) {
+        const emailForm = req.body.email,
+            passwordForm = req.body.password,
+            dbEmail = response.email_user,
+            dbPassword = response.password;
+        if (error) {
+            res.end(error);
+        }
+
+        if (emailForm == dbEmail && passwordForm == dbPassword) {
             //In this line I'm creating a new session for the given email
             req.session.user = req.body.email;
             //After the session is created, I'm redirecting the user to the session page.
@@ -18,13 +25,5 @@ route.post('/', (req, res) => {
         }
     })
 })
-
-route.get("/", (req, res) => {
-
-    res.render('home', {});
-
-});
-
-
 
 module.exports = route;
