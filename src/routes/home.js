@@ -10,7 +10,6 @@ route.post('/', (req, res) => {
 
         const emailForm = req.body.email, passwordForm = req.body.password;
 
-
         if (response) {
 
             const validated = response.find(row => {
@@ -32,7 +31,7 @@ route.post('/', (req, res) => {
 
 //This method is going to call the page "home" after executing redirect from the previous one
 route.get("/", (req, res) => {
-
+   
     res.render('home', {});
     
 });
