@@ -8,6 +8,7 @@ const {v4: uuidv4} = require('uuid')
 const login = require('./src/routes/login');
 const home = require('./src/routes/home');
 const logout = require('./src/routes/logout');
+const user = require('./src/routes/user');
 
 
 //Middlewares
@@ -44,5 +45,6 @@ app.use(session({
 app.use('/', login);
 app.use('/home', home);
 app.use('/logout', logout)
+app.use('/user', user)
 
 module.exports = app;
