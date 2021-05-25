@@ -31,3 +31,15 @@ ________________________________________________________________
 The find() method returns the value of the first element in the provided array that satisfies the provided testing function.If no values satisfy the testing function, undefined is returned.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+
+
+
+___________________--
+BD
+
+LEFT JOIN users ON schedules.id_user = users.id_user
+
+solo ponga el where
+
+SELECT * FROM table1 LEFT JOIN table2 ON table1.id = table2.id

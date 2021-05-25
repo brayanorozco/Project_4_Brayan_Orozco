@@ -1,5 +1,51 @@
 <%- include('../partials/head') %>
 
-<span>Hola</span>
+<div class="text-center tcenter-div mt-5" id="login">
+    <div class="container w-25 boder py-5 mt-5">
+        <h3>Welcome to Schedule Page</h3>
+        <h5><%= locals.user ? user: "User"%></h5>
+        <a href="/logout">Logout</a>
 
-<%- include('../partials/footer') %>
+        <main class="container">
+            <div>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Day</th>
+                            <th scope="col">Start At</th>
+                            <th scope="col">End At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% schedules.forEach((element, index) => { %>
+                        <tr>
+
+                            <td class="text-capitalize">
+                                <%= element.name %>
+                            </td>
+                            <td class="text-capitalize">
+                                <%= element.lastName %>
+                            </td>
+                            <td class="text-capitalize">
+                                <%= element.email %>
+                            </td>
+                            <td class="text-capitalize">
+                                <%= element.weekDay %>
+                            </td>
+                            <td>
+                                <%= element.startTime %>
+                            </td>
+                            <td>
+                                <%= element.endTime %>
+                            </td>
+                        </tr>
+                        <% }) %>
+
+
+            </div>
+    </div>
+
+    <%- include('../partials/footer') %>
