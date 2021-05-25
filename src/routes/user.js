@@ -13,7 +13,6 @@ router.get('/:id_user', (req, res) => {
 
         // 'Schedules' table connection
         connection.query(`SELECT * FROM schedules LEFT JOIN users ON schedules.id_user = users.id_user WHERE schedules.id_user = ${id_user}`, (errorSchedules, schedules) => {
-            console.log(schedules);
             if (errorSchedules) return res.status(404).send('Erro 404 schedules');
 
             let userSchedules = [];
