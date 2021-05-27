@@ -5,6 +5,7 @@ const connection = require('../../config/dbConnetion');
 const dayWeek = require('../utils/showDays');
 
 //Login user
+
 route.post('/', (req, res) => {
 
     connection.query('SELECT * FROM users', (error, response) => {
@@ -34,11 +35,11 @@ route.post('/', (req, res) => {
 route.get("/", (req, res) => {
 
     connection.query(
-        `SELECT users.id_user, users.last_name, users.name, schedules.week_day, schedules.start_time, schedules.end_time
+        `SELECT users.id_user, users.last_name, users.name, schedules.week_day, schedules.start_time, schedules.end_time as End_time
         FROM schedules
         LEFT JOIN users ON schedules.id_user = users.id_user;`, (error, response) => {
         if(error) return res.send('ERRO 404 L33');
-        
+        console.log(response);
         let schedules = [];
         response.forEach((element, index) => {
             let showDataHome = {
@@ -51,7 +52,6 @@ route.get("/", (req, res) => {
             }
             schedules.push(showDataHome);
         });
-        req.session.user;
         res.render('home', {schedules: schedules, user: req.session.user});
     })
 

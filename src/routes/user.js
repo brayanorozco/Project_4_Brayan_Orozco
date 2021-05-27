@@ -6,17 +6,13 @@ router.get('/:id_user', (req, res) => {
     const {
         id_user
     } = req.params;
-
-    // 'Users' table connection
-    connection.query(`SELECT * FROM users WHERE users.id_user = ${id_user}`, (error, response) => {
-        if (error) return res.status(404).send('Error 404');
-
+       
         // 'Schedules' table connection
         connection.query(`SELECT * FROM schedules LEFT JOIN users ON schedules.id_user = users.id_user WHERE schedules.id_user = ${id_user}`, (errorSchedules, schedules) => {
             if (errorSchedules) return res.status(404).send('Erro 404 schedules');
-
+            
             let userSchedules = [];
-
+            console.log(schedules);
             schedules.forEach(element => {
                 let rowInformation = {
 
@@ -30,17 +26,11 @@ router.get('/:id_user', (req, res) => {
                 userSchedules.push(rowInformation);
             });
 
-            return res.render('user', {
-                user: response[0],
-                schedules: userSchedules
-            });
+            return res.render('user', {schedules: userSchedules});
 
         })
 
 
     })
-
-
-});
 
 module.exports = router;
