@@ -10,18 +10,21 @@ route.post('/', (req, res) => {
 
     connection.query('SELECT * FROM users', (error, response) => {
 
-        const emailForm = req.body.email, passwordForm = req.body.password;
+        const emailForm = req.body.email
+        const passwordForm = req.body.password;
 
         if (response) {
 
-            const validated = response.find(row => {
+            const currentUser = response.find(row => {
                 return row.email_user == emailForm && row.password == passwordForm; 
             })
-            if(validated == undefined){
+            if(currentUser == undefined){
                 res.end('Invalid Username or Password');
             }
             else{
             //After the session is created, I'm redirecting the user to the session page.
+            req.session.user = {id: currentUser.id_user, email: currentUser.email_user, name: currentUser.name}
+            console.log(req.session.user);
             res.redirect('/home');
             }
         }
@@ -39,7 +42,7 @@ route.get("/", (req, res) => {
         FROM schedules
         LEFT JOIN users ON schedules.id_user = users.id_user;`, (error, response) => {
         if(error) return res.send('ERRO 404 L33');
-        console.log(response);
+        
         let schedules = [];
         response.forEach((element, index) => {
             let showDataHome = {
@@ -52,7 +55,8 @@ route.get("/", (req, res) => {
             }
             schedules.push(showDataHome);
         });
-        res.render('home', {schedules: schedules, user: req.session.user});
+       
+        res.render('home', {schedules: schedules});
     })
 
 });
