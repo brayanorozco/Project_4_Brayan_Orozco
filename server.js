@@ -9,6 +9,7 @@ const login = require('./src/routes/login');
 const home = require('./src/routes/home');
 const logout = require('./src/routes/logout');
 const user = require('./src/routes/user');
+const addSchedule = require('./src/routes/addSchedule');
 
 
 //Middlewares
@@ -44,7 +45,8 @@ app.use(session({
 //Assigning the routes created before in the "routes" folder
 app.use('/', login);
 app.use('/home', home);
-app.use('/logout', logout)
-app.use('/user', user)
+app.use('/logout', logout);
+app.use('/user', user);
+app.use('/addSchedule', addSchedule);
 
 module.exports = app;

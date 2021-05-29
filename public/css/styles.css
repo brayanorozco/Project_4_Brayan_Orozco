@@ -20,3 +20,9 @@ span {
 .btn {
     margin-top: 6%;
 }
+
+.formContainer{
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 10%;
+}

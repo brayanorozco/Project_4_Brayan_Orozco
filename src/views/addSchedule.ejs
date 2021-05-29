@@ -1,0 +1,32 @@
+<%- include('../partials/head') %>
+
+<div class="formContainer">
+    <form action="http://localhost:3000/addSchedule" method="POST">
+        <h5>Add new schedule for: <%= showUser%></h5>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="dayWeek">Day of the week</label>
+            </div>
+            <select class="custom-select" id="dayWeek" name="dayWeek" type="number">
+                <option selected value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+                <option value="7">Sunday</option>
+            </select>
+        </div>
+
+        <span id="inputGroup-sizing-sm">Start Time</span>
+        <input type="time" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="startTime">
+
+        <span id="inputGroup-sizing-sm">End Time</span>
+        <input type="time" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="endTime">
+
+        <button type="submit" class="btn btn-danger rounded-pi">New Schedule</button>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

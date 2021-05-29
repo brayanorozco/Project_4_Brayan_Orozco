@@ -3,7 +3,8 @@
 <div class="text-center tcenter-div mt-5" id="login">
   <div class="container w-25 boder py-5 mt-5">
     <h3>Welcome to Schedule Page</h3>
-    <h5><%= locals.user ? user: "User"%></h5>
+    <h5>Current user: <%= showUser%></h5>
+    <a href="/addSchedule">Add Schedule</a>
     <a href="/logout">Logout</a>
 
     <main class="container">

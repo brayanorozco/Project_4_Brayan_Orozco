@@ -24,7 +24,7 @@ route.post('/', (req, res) => {
             else{
             //After the session is created, I'm redirecting the user to the session page.
             req.session.user = {id: currentUser.id_user, email: currentUser.email_user, name: currentUser.name}
-            console.log(req.session.user);
+            //console.log(req.session.user);
             res.redirect('/home');
             }
         }
@@ -56,7 +56,7 @@ route.get("/", (req, res) => {
             schedules.push(showDataHome);
         });
        
-        res.render('home', {schedules: schedules});
+        res.render('home', {schedules: schedules, showUser: req.session.user.name});
     })
 
 });
