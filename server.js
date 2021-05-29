@@ -1,8 +1,10 @@
 //Calling the express module
 const express = require('express');
 const app = express();
-const session = require('express-session')
-const {v4: uuidv4} = require('uuid')
+const session = require('express-session');
+const {
+    v4: uuidv4
+} = require('uuid');
 
 //Importing routes
 const login = require('./src/routes/login');
@@ -38,7 +40,7 @@ app.use(session({
     secret: uuidv4(),
     resave: false,
     saveUninitialized: true
-}))
+}));
 
 
 //Routes

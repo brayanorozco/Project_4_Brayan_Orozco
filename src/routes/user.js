@@ -30,9 +30,9 @@ router.get('/:id_user', (req, res) => {
         return res.render('user', {
             schedules: userSchedules});
 
-    })
+    });
 
 
-})
+});
 
 module.exports = router;
