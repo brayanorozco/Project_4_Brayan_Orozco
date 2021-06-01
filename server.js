@@ -43,6 +43,7 @@ app.use(session({
 }));
 
 
+
 //Routes
 //Assigning the routes created before in the "routes" folder
 app.use('/', login);

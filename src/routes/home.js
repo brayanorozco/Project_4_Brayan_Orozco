@@ -10,7 +10,7 @@ route.post('/', (req, res) => {
 
     connection.query('SELECT * FROM users', (error, response) => {
 
-        const emailForm = req.body.email
+        const emailForm = req.body.email;
         const passwordForm = req.body.password;
 
         if (response) {
@@ -18,6 +18,7 @@ route.post('/', (req, res) => {
             const currentUser = response.find(row => {
                 return row.email_user == emailForm && row.password == passwordForm;
             })
+
             if (currentUser == undefined) {
                 res.end('Invalid Username or Password');
             } else {
@@ -29,6 +30,7 @@ route.post('/', (req, res) => {
                 }
                 //console.log(req.session.user);
                 res.redirect('/home');
+
             }
         }
 
