@@ -12,6 +12,7 @@ const home = require('./src/routes/home');
 const logout = require('./src/routes/logout');
 const user = require('./src/routes/user');
 const addSchedule = require('./src/routes/addSchedule');
+const newUser = require('./src/routes/newUser');
 
 
 //Middlewares
@@ -51,5 +52,6 @@ app.use('/home', home);
 app.use('/logout', logout);
 app.use('/user', user);
 app.use('/addSchedule', addSchedule);
+app.use('/newUser', newUser);
 
 module.exports = app;
