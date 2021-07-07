@@ -41,7 +41,7 @@ route.post('/', (req, res) => {
 // Calling home and showing the schedules
 
 route.get("/", (req, res) => {
-
+    console.log("This is the get request.")
     connection.query(
         `SELECT users.id_user, users.last_name, users.name, schedules.week_day, schedules.start_time, schedules.end_time
         FROM schedules
@@ -51,9 +51,9 @@ route.get("/", (req, res) => {
             let schedules = [];
             response.forEach((element, index) => {
                 let showDataHome = {
-                    id: element.id_user,
-                    name: element.name,
-                    lastName: element.last_name,
+                    id: element.id,
+                    name: element.firstName,
+                    lastName: element.surName,
                     weekDay: dayWeek(element.week_day),
                     startTime: element.start_time,
                     endTime: element.end_time

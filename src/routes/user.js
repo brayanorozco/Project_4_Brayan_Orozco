@@ -13,13 +13,13 @@ router.get('/:id_user', (req, res) => {
         if (errorSchedules) return res.status(404).send('Erro 404 schedules');
 
         let userSchedules = [];
-        
+
         schedules.forEach(element => {
             let rowInformation = {
 
                 name: element.name,
-                lastName: element.last_name,
-                email: element.email_user,
+                lastName: element.surName,
+                email: element.email,
                 weekDay: dayWeek(element.week_day),
                 startTime: element.start_time,
                 endTime: element.end_time
