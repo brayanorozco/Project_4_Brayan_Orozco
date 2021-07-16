@@ -31,7 +31,23 @@ route.post('/',
 
     (req, res) => {
 
-        const  {firstName, lastName, newUserEmail, newUserPassword } = req.body;
+        const {
+            firstName,
+            lastName,
+            newUserEmail,
+            newUserPassword
+        } = req.body;
+
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render(newUser, {
+                message: "Validation Problems",
+                firstName,
+                lastName,
+                newUserEmail,
+                newUserPassword
+            });
+        }
 
         connection.query(' INSERT INTO users (name, last_name, email_user, password) VALUES(?,?,?,?)',
             [firstName, lastName, newUserEmail, newUserPassword],
