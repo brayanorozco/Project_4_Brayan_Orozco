@@ -31,13 +31,10 @@ route.post('/',
 
     (req, res) => {
 
-        const name = req.body.firstName;
-        const lastName = req.body.lastName;
-        const newUserEmail = req.body.email;
-        const newUserPassword = req.body.password;
+        const  {firstName, lastName, newUserEmail, newUserPassword } = req.body;
 
         connection.query(' INSERT INTO users (name, last_name, email_user, password) VALUES(?,?,?,?)',
-            [name, lastName, newUserEmail, newUserPassword],
+            [firstName, lastName, newUserEmail, newUserPassword],
             (error, response) => {
                 if (error) throw error;
 
